@@ -7,7 +7,7 @@ autoload -U add-zsh-hook
 
 function _shelldb_preexec() {
   local id
-  id=$(shelldb start --command "$1" --cwd "${PWD}")
+  id=$(shelldb start --command "$1" --working-directory "${PWD}")
   export SHELLDB_HISTORY_ID="$id"
 }
 
