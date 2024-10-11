@@ -1,6 +1,6 @@
 # shelldb
 
-Record your `zsh` shell history in a SQLite database.
+Record your `zsh` command history to a SQLite database.
 
 ## installation
 
