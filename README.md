@@ -1,20 +1,12 @@
 # shelldb
 
 Record your `zsh` shell history in a SQLite database.
-`shelldb` does this by hooking in to 2 `zsh` hooks, `preexec` and `precmd` as described [here](https://zsh.sourceforge.io/Doc/Release/Functions.html).
-
-## motivation
-
-This project is like [Atuin](https://github.com/atuinsh/atuin) but _only_ records shell history. 
-
-I have no dislike of `Atuin`, but `Atuin` has a lot of features I don't need.
-
-To that end, `shelldb` is:
-1. _only_ shell history recording, nothing else
-2. a minimal implementation I can understand 100% top-to-bottom
-3. only available for `zsh`, because that's what I use
 
 ## installation
+
+First, [install Rust](https://www.rust-lang.org/tools/install).
+
+Then:
 
 ```sh
 $ git clone https://github.com/ckampfe/shelldb.git
@@ -25,52 +17,25 @@ $ echo "source /location/of/this_repo/shelldb.sh" >> ~/.zshrc
 
 ## options
 
-Options are included in this README so you the end user can understand how `shelldb` works, but in reality you shouldn't have to use them, they are set in `shelldb.sh`.
+The environment variable `SHELLDB_HISTORY_DB_PATH` allows you to override the default and set a custom history database location. You should set it in your `.zshrc` before sourcing `shelldb.sh`, and it should look like: `/path/to/your/history.db`.
 
-The only reason to interact with the options as a user is to set a custom history database location, which you do by setting `SHELLDB_HISTORY_DB_PATH` to something like `/path/to/your/history.db`.
+Run `shelldb -h` to see the other options if you're curious about how `shelldb` works.
 
-```sh
-$ shelldb -h
-record shell history in a SQLite database
+## how
 
-Usage: shelldb [DATABASE_PATH] <COMMAND>
+`shelldb` hooks in to 2 `zsh` hooks, `preexec` and `precmd` as described [here](https://zsh.sourceforge.io/Doc/Release/Functions.html). The first phase, during `preexec`, records the command, the working directory the command was executed in, and the start time. This first phase returns an id unique to that command that the subsequent `precmd` phase references to then set the exit code and the finish time when the command finishes executing.
 
-Commands:
-  start   record the start of a shell command and the directory it was executed in
-  finish  record a command's exit code
-  help    Print this message or the help of the given subcommand(s)
+## motivation
 
-Arguments:
-  [DATABASE_PATH]  set this to override the default history database path [env: SHELLDB_HISTORY_DB_PATH=]
+This project is like [Atuin](https://github.com/atuinsh/atuin) but _only_ records shell history. 
 
-Options:
-  -h, --help  Print help
-```
+I have no dislike of `Atuin`, but `Atuin` has a lot of features I don't need.
 
-Start options:
+To that end, `shelldb` is:
+1. _only_ shell history recording, nothing else
+2. a minimal implementation I can 100% understand top-to-bottom
+3. only available for `zsh`, because that's what I use
 
-```sh
-at [ 22:59:21 ] ➜ shelldb start -h
-record the start of a shell command and the directory it was executed in
+## is it any good?
 
-Usage: shelldb start --command <COMMAND> --working-directory <WORKING_DIRECTORY>
-
-Options:
-      --command <COMMAND>                      the command to record
-      --working-directory <WORKING_DIRECTORY>  the working directory of the command
-  -h, --help                                   Print help
-```
-
-Finish options:
-
-```sh
-$ shelldb finish -h
-record a command's exit code
-
-Usage: shelldb finish --exit-code <EXIT_CODE> --id <ID>
-
-Options:
-      --exit-code <EXIT_CODE>  the exit code of a command that just completed
-      --id <ID>                the ID of the since-completed command, so we can record its exit code
-  -h, --help                   Print help
-```
+yes.
