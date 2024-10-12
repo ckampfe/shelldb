@@ -13,6 +13,7 @@ $ git clone https://github.com/ckampfe/shelldb.git
 $ cd shelldb
 $ cargo install --path . --force
 $ echo "source /location/of/this_repo/shelldb.sh" >> ~/.zshrc
+$ source ~/.zshrc
 ```
 
 ## options
