@@ -7,7 +7,7 @@ edition = "2021"
 anyhow = "1"
 clap = { version = "4", features = ["derive", "env"] }
 directories = "5"
-rusqlite = "0.32"
+rusqlite = { version = "0.32", features = ["uuid"] }
 uuid = { version = "1", features = ["v4", "fast-rng"] }
 
 [profile.release]

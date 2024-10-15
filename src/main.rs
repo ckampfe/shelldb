@@ -63,7 +63,7 @@ fn main() -> anyhow::Result<()> {
 
     conn.execute(
         "create table if not exists history (
-        id text primary key,
+        id blob primary key,
         command text not null,
         exit_code integer,
         working_directory text not null,
@@ -82,7 +82,7 @@ fn main() -> anyhow::Result<()> {
 
             conn.execute(
                 "insert into history (id, working_directory, command) values (?1, ?2, ?3)",
-                [id.to_string(), working_directory, command],
+                params![id, working_directory, command],
             )?;
 
             // write the id to stdout so we can use it
@@ -99,7 +99,7 @@ fn main() -> anyhow::Result<()> {
                     exit_code = ?1,
                     ended_at = current_timestamp
                 where id = ?2",
-                params![exit_code, id.to_string()],
+                params![exit_code, id],
             )?;
         }
     }
