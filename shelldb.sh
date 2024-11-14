@@ -28,4 +28,3 @@ function _shelldb_precmd() {
 
 add-zsh-hook preexec _shelldb_preexec
 add-zsh-hook precmd _shelldb_precmd
- 
