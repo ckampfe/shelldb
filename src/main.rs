@@ -88,7 +88,7 @@ fn main() -> anyhow::Result<()> {
             // write the id to stdout so we can use it
             // to link back to this event with the exit code
             let mut stdout = std::io::stdout();
-            write!(stdout, "{}", id)?;
+            write!(stdout, "{id}")?;
             stdout.flush()?;
         }
         Command::Finish { exit_code, id } => {
