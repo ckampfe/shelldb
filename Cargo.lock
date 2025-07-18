@@ -78,9 +78,9 @@ checksum = "9555578bc9e57714c812a1f84e4fc5b4d21fcb063490c624de019f7464c91268"
 
 [[package]]
 name = "clap"
-version = "4.5.40"
+version = "4.5.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40b6887a1d8685cebccf115538db5c0efe625ccac9696ad45c409d96566e910f"
+checksum = "be92d32e80243a54711e5d7ce823c35c41c9d929dc4ab58e1276f625841aadf9"
 dependencies = [
  "clap_builder",
  "clap_derive",
@@ -88,9 +88,9 @@ dependencies = [
 
 [[package]]
 name = "clap_builder"
-version = "4.5.40"
+version = "4.5.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e0c66c08ce9f0c698cbce5c0279d0bb6ac936d8674174fe48f736533b964f59e"
+checksum = "707eab41e9622f9139419d573eca0900137718000c517d47da73045f54331c3d"
 dependencies = [
  "anstream",
  "anstyle",
@@ -100,9 +100,9 @@ dependencies = [
 
 [[package]]
 name = "clap_derive"
-version = "4.5.40"
+version = "4.5.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2c7947ae4cc3d851207c1adb5b5e260ff0cca11446b1d6d1423788e442257ce"
+checksum = "ef4f52386a59ca4c860f7393bcf8abd8dfd91ecccc0f774635ff68e92eeef491"
 dependencies = [
  "heck",
  "proc-macro2",
@@ -242,9 +242,9 @@ dependencies = [
 
 [[package]]
 name = "libsqlite3-sys"
-version = "0.34.0"
+version = "0.35.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "91632f3b4fb6bd1d72aa3d78f41ffecfcf2b1a6648d8c241dbe7dbfaf4875e15"
+checksum = "133c182a6a2c87864fe97778797e46c7e999672690dc9fa3ee8e241aa4a9c13f"
 dependencies = [
  "pkg-config",
  "vcpkg",
@@ -355,9 +355,9 @@ dependencies = [
 
 [[package]]
 name = "rusqlite"
-version = "0.36.0"
+version = "0.37.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3de23c3319433716cf134eed225fe9986bc24f63bed9be9f20c329029e672dc7"
+checksum = "165ca6e57b20e1351573e3729b958bc62f0e48025386970b6e4d29e7a7e71f3f"
 dependencies = [
  "bitflags",
  "fallible-iterator",
